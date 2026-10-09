@@ -562,6 +562,40 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section class="section-pad bg-deep" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2 id="contact-heading">Questions, feedback, or a partnership idea?</h2>
+        <p>Send a message below, or email us directly at <a href="mailto:support@ulamhub.com" style="color:var(--green); font-weight:700;">support@ulamhub.com</a>.</p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xrpeqnpq" method="POST">
+        <div class="contact-row">
+          <div class="field">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" rows="5" required></textarea>
+        </div>
+        <!-- Formspree's spam honeypot — real visitors never see or fill this. -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="contact-submit-row">
+          <button type="submit" class="btn btn-primary" id="contactSubmit">Send message</button>
+          <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -585,7 +619,7 @@
         <ul>
           <li><a href="#about-heading">About</a></li>
           <li><a href="#download">Download</a></li>
-          <li><a href="mailto:support@ulamhub.com">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">

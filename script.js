@@ -51,4 +51,51 @@
     );
     revealEls.forEach(function (el) { io.observe(el); });
   }
+
+  // Submits via fetch so the visitor gets an inline status instead of being
+  // bounced to Formspree's own confirmation page. If JS fails for any
+  // reason, the form's plain action/method still POSTs straight to
+  // Formspree and works, just with a less polished landing afterward.
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    var submitBtn = document.getElementById("contactSubmit");
+    var status = document.getElementById("contactStatus");
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      status.textContent = "";
+      status.classList.remove("is-success", "is-error");
+
+      fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      })
+        .then(function (response) {
+          if (response.ok) {
+            contactForm.reset();
+            status.textContent = "Thanks — we'll get back to you soon.";
+            status.classList.add("is-success");
+          } else {
+            return response.json().then(function (data) {
+              var message =
+                data && Array.isArray(data.errors) && data.errors.length
+                  ? data.errors.map(function (err) { return err.message; }).join(", ")
+                  : "Something went wrong — please try again.";
+              throw new Error(message);
+            });
+          }
+        })
+        .catch(function (err) {
+          status.textContent = (err && err.message) || "Something went wrong — please try again, or email support@ulamhub.com directly.";
+          status.classList.add("is-error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send message";
+        });
+    });
+  }
 })();

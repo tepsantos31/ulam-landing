@@ -852,3 +852,41 @@ section { position: relative; }
 .legal-section h2 { font-size: 19px; margin-bottom: 10px; }
 .legal-section p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }
 .legal-section a { color: var(--green); font-weight: 700; }
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: 32px;
+  box-shadow: 0 6px 20px rgba(35,51,28,0.06);
+}
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.field label { font-family: var(--font-body); font-weight: 800; font-size: 13.5px; color: var(--ink); }
+.field input,
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 13px 15px;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--teal-dark);
+}
+.contact-submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.contact-status { font-size: 14px; font-weight: 700; color: var(--sage-text); }
+.contact-status.is-success { color: var(--green); }
+.contact-status.is-error { color: var(--coral); }
+
+@media (max-width: 560px) {
+  .contact-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-form { padding: 24px 20px; }
+}
