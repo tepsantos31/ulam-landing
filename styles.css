@@ -515,6 +515,35 @@ section { position: relative; }
 .spotlight-point svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; color: var(--gold-text); }
 .spotlight-visual { display: flex; justify-content: center; }
 
+/* ---------- AI tools differentiator ---------- */
+.ai-duo-head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
+.ai-duo-head h2 { font-size: clamp(28px, 3.2vw, 36px); margin-bottom: 14px; }
+.ai-duo-head p { font-size: 16.5px; color: var(--ink-soft); line-height: 1.65; }
+.ai-duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.ai-duo-card {
+  border-radius: var(--r-xxl);
+  padding: 40px 36px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  overflow: hidden;
+}
+.ai-duo-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 6px 16px rgba(35,51,28,0.08);
+}
+.ai-duo-card h3 { font-size: 22px; }
+.ai-duo-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; max-width: 34ch; }
+.ai-duo-card .phone { margin-top: 10px; }
+
 /* ---------- Recipe deep dive ---------- */
 .deepdive-grid {
   display: grid;
@@ -795,7 +824,8 @@ section { position: relative; }
   .hero-copy p.lede { margin-left: auto; margin-right: auto; }
   .hero-ctas, .hero-trust { justify-content: center; }
   .hero-visual { margin-top: 20px; }
-  .about-grid, .deepdive-grid, .personal-grid, .identity-grid, .spotlight { grid-template-columns: 1fr; }
+  .about-grid, .deepdive-grid, .personal-grid, .identity-grid, .spotlight, .ai-duo-grid { grid-template-columns: 1fr; }
+  .ai-duo-grid { gap: 20px; max-width: 360px; margin: 0 auto; }
   .spotlight { padding: 36px 28px; text-align: center; }
   .spotlight-visual { order: -1; margin-bottom: 10px; }
   .spotlight-points { text-align: left; }
