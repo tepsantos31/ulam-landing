@@ -519,7 +519,7 @@ section { position: relative; }
 .ai-duo-head { text-align: center; max-width: 620px; margin: 0 auto 44px; }
 .ai-duo-head h2 { font-size: clamp(28px, 3.2vw, 36px); margin-bottom: 14px; }
 .ai-duo-head p { font-size: 16.5px; color: var(--ink-soft); line-height: 1.65; }
-.ai-duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.ai-duo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .ai-duo-card {
   border-radius: var(--r-xxl);
   padding: 40px 36px 0;
@@ -813,6 +813,8 @@ section { position: relative; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .ai-duo-grid { grid-template-columns: 1fr 1fr; max-width: 560px; margin: 0 auto; }
+  .ai-duo-grid .ai-duo-card:first-child { grid-column: 1 / -1; max-width: 360px; margin: 0 auto; }
 }
 
 @media (max-width: 940px) {
