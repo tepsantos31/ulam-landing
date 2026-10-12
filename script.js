@@ -52,6 +52,43 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  // Same fetch-based submit used below for the main contact form, kept
+  // separate since it's a different form with its own fields/endpoint pair.
+  var earlyAccessForm = document.getElementById("earlyAccessForm");
+  if (earlyAccessForm) {
+    var earlySubmitBtn = document.getElementById("earlyAccessSubmit");
+    var earlyStatus = document.getElementById("earlyAccessStatus");
+
+    earlyAccessForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      earlySubmitBtn.disabled = true;
+      earlyStatus.textContent = "";
+      earlyStatus.classList.remove("is-success", "is-error");
+
+      fetch(earlyAccessForm.action, {
+        method: "POST",
+        body: new FormData(earlyAccessForm),
+        headers: { Accept: "application/json" },
+      })
+        .then(function (response) {
+          if (response.ok) {
+            earlyAccessForm.reset();
+            earlyStatus.textContent = "You're on the list — we'll email you when UlamHub is live.";
+            earlyStatus.classList.add("is-success");
+          } else {
+            throw new Error("Something went wrong — please try again.");
+          }
+        })
+        .catch(function (err) {
+          earlyStatus.textContent = (err && err.message) || "Something went wrong — please try again.";
+          earlyStatus.classList.add("is-error");
+        })
+        .finally(function () {
+          earlySubmitBtn.disabled = false;
+        });
+    });
+  }
+
   // Submits via fetch so the visitor gets an inline status instead of being
   // bounced to Formspree's own confirmation page. If JS fails for any
   // reason, the form's plain action/method still POSTs straight to
