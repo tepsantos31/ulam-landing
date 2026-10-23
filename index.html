@@ -404,7 +404,7 @@
       <div class="cta-banner reveal">
         <h2 id="download-heading">Your Next Meal Is Waiting.</h2>
         <p>UlamHub is in final testing on iOS and Android. Join the list and we'll email you the moment it's live.</p>
-        <form class="early-access-form" id="earlyAccessForm" action="https://formspree.io/f/xrpeqnpq" method="POST">
+        <form class="early-access-form" id="earlyAccessForm" action="/api/early-access" method="POST">
           <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" autocomplete="email" required>
           <input type="hidden" name="_subject" value="UlamHub early access signup">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -434,7 +434,7 @@
         <p>Send a message below, or email us directly at <a href="mailto:support@ulamhub.com" style="color:var(--green); font-weight:700;">support@ulamhub.com</a>.</p>
       </div>
 
-      <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xrpeqnpq" method="POST">
+      <form class="contact-form reveal" id="contactForm" action="/api/contact" method="POST">
         <div class="contact-row">
           <div class="field">
             <label for="contactName">Name</label>

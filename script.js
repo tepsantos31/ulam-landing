@@ -67,8 +67,8 @@
 
       fetch(earlyAccessForm.action, {
         method: "POST",
-        body: new FormData(earlyAccessForm),
-        headers: { Accept: "application/json" },
+        body: new URLSearchParams(new FormData(earlyAccessForm)),
+        headers: { Accept: "application/json", "Content-Type": "application/x-www-form-urlencoded" },
       })
         .then(function (response) {
           if (response.ok) {
@@ -107,8 +107,8 @@
 
       fetch(contactForm.action, {
         method: "POST",
-        body: new FormData(contactForm),
-        headers: { Accept: "application/json" },
+        body: new URLSearchParams(new FormData(contactForm)),
+        headers: { Accept: "application/json", "Content-Type": "application/x-www-form-urlencoded" },
       })
         .then(function (response) {
           if (response.ok) {
