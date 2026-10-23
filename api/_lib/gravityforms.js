@@ -20,7 +20,7 @@ async function submitToGravityForms(formId, inputValues) {
       Authorization: `Basic ${auth}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ input_values: inputValues }),
+    body: JSON.stringify(inputValues),
   });
   const data = await res.json().catch(() => null);
   if (!res.ok || (data && data.is_valid === false)) {
