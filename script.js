@@ -135,4 +135,25 @@
         });
     });
   }
+
+  // Click-to-play phone screen recordings — starts paused on a poster frame,
+  // plays once on click (not an autoplay loop), and resets to the poster so
+  // re-clicking plays again from the start rather than leaving native controls up.
+  var videoPlayers = document.querySelectorAll("[data-video-player]");
+  videoPlayers.forEach(function (wrap) {
+    var video = wrap.querySelector("video");
+    var playBtn = wrap.querySelector(".phone-video-play");
+    if (!video || !playBtn) return;
+
+    playBtn.addEventListener("click", function () {
+      wrap.classList.add("is-playing");
+      video.controls = true;
+      video.play();
+    });
+    video.addEventListener("ended", function () {
+      wrap.classList.remove("is-playing");
+      video.controls = false;
+      video.currentTime = 0;
+    });
+  });
 })();

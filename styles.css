@@ -305,6 +305,44 @@ section { position: relative; }
 .phone-lg { width: 300px; }
 .phone-sm { width: 210px; }
 
+.phone-video { position: relative; width: 100%; height: 100%; }
+.phone-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  background: var(--cream);
+}
+.phone-video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(23,48,45,0.18);
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+.phone-video-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  border-radius: 50%;
+  background: rgba(23,48,45,0.55);
+  z-index: 0;
+}
+.phone-video-play svg { position: relative; z-index: 1; color: var(--white); margin-left: 3px; }
+.phone-video-play:hover { background: rgba(23,48,45,0.28); }
+.phone-video.is-playing .phone-video-play { opacity: 0; pointer-events: none; }
+
 /* ---------- Hero ---------- */
 .hero {
   padding: 56px 0 110px;
