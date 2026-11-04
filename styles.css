@@ -558,6 +558,7 @@ section { position: relative; }
 .ai-duo-head h2 { font-size: clamp(28px, 3.2vw, 36px); margin-bottom: 14px; }
 .ai-duo-head p { font-size: 16.5px; color: var(--ink-soft); line-height: 1.65; }
 .ai-duo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ai-duo-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto; }
 .ai-duo-card {
   border-radius: var(--r-xxl);
   padding: 40px 36px 0;
@@ -706,34 +707,6 @@ section { position: relative; }
 }
 .tutorial-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
-/* ---------- Film strip ---------- */
-.filmstrip-wrap { overflow: hidden; }
-.filmstrip {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 6px 24px 28px;
-  margin: 0 -24px;
-  -webkit-overflow-scrolling: touch;
-}
-.filmstrip::-webkit-scrollbar { height: 8px; }
-.filmstrip::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--r-pill); }
-.film-card {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  width: 200px;
-}
-.film-shot {
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  aspect-ratio: 300/430;
-  box-shadow: 0 10px 24px rgba(35,51,28,0.1);
-  margin-bottom: 12px;
-}
-.film-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.film-card .film-label { font-weight: 800; font-size: 14px; }
-.film-card .film-sub { font-size: 13px; color: var(--text-secondary); }
 
 /* ---------- Benefits ---------- */
 .benefits-grid {
@@ -892,6 +865,8 @@ section { position: relative; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
   .ai-duo-grid { grid-template-columns: 1fr 1fr; max-width: 560px; margin: 0 auto; }
   .ai-duo-grid .ai-duo-card:first-child { grid-column: 1 / -1; max-width: 360px; margin: 0 auto; }
+  .ai-duo-grid-2 { max-width: 560px; }
+  .ai-duo-grid-2 .ai-duo-card:first-child { grid-column: auto; max-width: none; margin: 0; }
   .plan-section { grid-template-columns: 1fr; }
   .plan-pricing { flex-direction: row; }
   .price-card { flex: 1; }
